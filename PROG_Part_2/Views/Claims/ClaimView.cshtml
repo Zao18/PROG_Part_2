@@ -1,0 +1,32 @@
+﻿@model PROG_Part_2.Models.Claims
+
+@{
+    ViewData["Title"] = "ClaimView";
+}
+
+<div class="claim-form-container">
+    <h2>Submit Monthly Claim</h2>
+
+    @using (Html.BeginForm("SubmitClaim", "Claims", FormMethod.Post, new { @class = "claim-form" })) 
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.HoursWorked, "Hours Worked")
+            @Html.TextBoxFor(m => m.HoursWorked, new { @class = "form-control", type = "number", step = "0.1", min = "0" })
+            @Html.ValidationMessageFor(m => m.HoursWorked)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.HourlyRate, "Hourly Rate")
+            @Html.TextBoxFor(m => m.HourlyRate, new { @class = "form-control", type = "number", step = "0.01", min = "0" })
+            @Html.ValidationMessageFor(m => m.HourlyRate)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.AdditionalNotes, "Additional Notes")
+            @Html.TextBoxFor(m => m.AdditionalNotes, new { @class = "form-control", type = "string"})
+            @Html.ValidationMessageFor(m => m.AdditionalNotes)
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
+    }
+</div>
