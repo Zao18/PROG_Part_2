@@ -12,5 +12,6 @@ namespace PROG_Part_2.Models
         public string? DocumentName { get; set; }
         public long Size { get; set; }
         public DateTimeOffset? LastModified { get; set; }
+        public string? Status { get; set; } = "Pending";
     }
 }

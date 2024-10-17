@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PROG_Part_2.Models.Claims>
+
+@{
+    ViewData["Title"] = "Status";
+}
+
+<h2>Claim History</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Additional Notes</th>
+            <th>Document</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@claim.AdditionalNotes</td>
+                <td>@claim.DocumentName</td>
+                <td>
+                    <span class="status-label @(claim.Status.ToLower())">@claim.Status</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -7,7 +7,6 @@ namespace PROG_Part_2.Controllers
     {
         public IActionResult PendingClaims()
         {
-            // Access the static _claimsList from ClaimsController
             var pendingClaims = ClaimsController._claimsList;
             return View(pendingClaims);
         }
@@ -18,7 +17,7 @@ namespace PROG_Part_2.Controllers
             var claim = ClaimsController._claimsList.FirstOrDefault(c => c.ClaimId == id);
             if (claim != null)
             {
-                ClaimsController._claimsList.Remove(claim); // Approve claim by removing from the list
+                claim.Status = "Approved";
             }
             return RedirectToAction("PendingClaims");
         }
@@ -29,7 +28,7 @@ namespace PROG_Part_2.Controllers
             var claim = ClaimsController._claimsList.FirstOrDefault(c => c.ClaimId == id);
             if (claim != null)
             {
-                ClaimsController._claimsList.Remove(claim); // Reject claim by removing from the list
+                claim.Status = "Rejected";
             }
             return RedirectToAction("PendingClaims");
         }
