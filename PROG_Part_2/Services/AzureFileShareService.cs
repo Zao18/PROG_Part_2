@@ -26,10 +26,11 @@ namespace PROG_Part_2.Services
                 var directoryClient = shareClient.GetDirectoryClient(directoryName);
                 await directoryClient.CreateIfNotExistsAsync();
 
-                var fileCLient = directoryClient.GetFileClient(fileName);
+                var fileClient = directoryClient.GetFileClient(fileName);
 
-                await fileCLient.CreateAsync(fileName.Length);
-                await fileCLient.UploadRangeAsync(new Azure.HttpRange(0, fileStream.Length), fileStream);
+                await fileClient.CreateAsync(fileStream.Length);
+                await fileClient.UploadRangeAsync(new Azure.HttpRange(0, fileStream.Length), fileStream);
+
             }
             catch (Exception ex)
             {

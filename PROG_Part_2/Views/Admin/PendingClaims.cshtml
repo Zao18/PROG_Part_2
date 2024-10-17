@@ -21,6 +21,7 @@
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@claim.AdditionalNotes</td>
+                <td>@claim.DocumentName</td>
                 <td>
                     <form asp-action="ApproveClaim" method="post">
                         <input type="hidden" name="id" value="@claim.ClaimId" />

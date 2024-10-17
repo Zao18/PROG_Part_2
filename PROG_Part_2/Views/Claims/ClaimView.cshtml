@@ -7,7 +7,7 @@
 <div class="claim-form-container">
     <h2>Submit Monthly Claim</h2>
 
-    @using (Html.BeginForm("SubmitClaim", "Claims", FormMethod.Post, new { @class = "claim-form" })) 
+    @using (Html.BeginForm("SubmitClaim", "Claims", FormMethod.Post, new { enctype = "multipart/form-data", @class = "claim-form" }))
     {
         <div class="form-group">
             @Html.LabelFor(m => m.HoursWorked, "Hours Worked")
@@ -27,20 +27,17 @@
             @Html.ValidationMessageFor(m => m.AdditionalNotes)
         </div>
 
-        @if (TempData["Message"] != null)
+        <div class="form-group">
+            <label for="file">Upload Document:</label>
+            <input type="file" name="file" class="form-control" />
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.DocumentName))
         {
-            <div class="alert alert-info">
-                @TempData["Message"]
+            <div class="form-group">
+                <p>Uploaded Document: @Model.DocumentName</p>
             </div>
         }
-
-        <form asp-action="Upload" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="file">Choose a file to upload:</label>
-                <input type="file" name="file" class="form-control" />
-                <button type="submit" class="btn btn-primary mt-2">Upload</button>
-            </div>
-        </form>
 
         <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
     }

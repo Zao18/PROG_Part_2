@@ -1,3 +1,6 @@
+using PROG_Part_2.Services;
+using System.Configuration;
+
 namespace PROG_Part_2
 {
     public class Program
@@ -5,9 +8,16 @@ namespace PROG_Part_2
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var configuration = builder.Configuration;
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSingleton<AzureFileShareService>(sp =>
+            {
+                var connectionString = configuration.GetConnectionString("AzureStorage");
+                return new AzureFileShareService(connectionString, "birdshare");
+            });
 
             var app = builder.Build();
 
