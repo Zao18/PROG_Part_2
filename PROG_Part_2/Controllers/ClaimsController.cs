@@ -7,7 +7,7 @@ namespace PROG_Part_2.Controllers
 {
     public class ClaimsController : Controller
     {
-        private static List<Claims> _claimsList = new List<Claims>();
+        public static List<Claims> _claimsList = new List<Claims>();
 
         [HttpGet]
         public IActionResult SubmitClaim()
@@ -16,7 +16,7 @@ namespace PROG_Part_2.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitClaim(Claims model)
+        public IActionResult SubmitClaim(Claims model, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -31,4 +31,3 @@ namespace PROG_Part_2.Controllers
         }
     }
 }
-

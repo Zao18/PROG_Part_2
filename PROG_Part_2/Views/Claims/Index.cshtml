@@ -11,6 +11,7 @@
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
             <th>Additional Notes</th>
+            <th>File</th>
         </tr>
     </thead>
     <tbody>
@@ -20,10 +21,10 @@
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@claim.AdditionalNotes</td>
+                <td>@claim.DocumentName</td>
             </tr>
         }
     </tbody>
 </table>
 
 <a asp-action="SubmitClaim" asp-controller="Claims">Create New Claim</a>
-

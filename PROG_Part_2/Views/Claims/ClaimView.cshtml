@@ -27,6 +27,18 @@
             @Html.ValidationMessageFor(m => m.AdditionalNotes)
         </div>
 
+        <div class="form-group">
+            <label for="file">Upload Document:</label>
+            <input type="file" name="file" class="form-control" />
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.DocumentName))
+        {
+            <div class="form-group">
+                <p>Uploaded Document: @Model.DocumentName</p>
+            </div>
+        }
+
         <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
     }
 </div>
