@@ -1,5 +1,8 @@
 using PROG_Part_2.Services;
 using System.Configuration;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PROG_Part_2.Areas.Identity.Data;
 
 namespace PROG_Part_2
 {
@@ -8,6 +11,11 @@ namespace PROG_Part_2
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var connectionString = builder.Configuration.GetConnectionString("PROG_Part_2ContextConnection") ?? throw new InvalidOperationException("Connection string 'PROG_Part_2ContextConnection' not found.");
+
+            builder.Services.AddDbContext<PROG_Part_2Context>(options => options.UseSqlServer(connectionString));
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<PROG_Part_2Context>();
             var configuration = builder.Configuration;
 
             // Add services to the container.
@@ -39,6 +47,8 @@ namespace PROG_Part_2
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapRazorPages();
 
             app.Run();
         }

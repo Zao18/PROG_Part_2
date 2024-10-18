@@ -4,27 +4,32 @@
     ViewData["Title"] = "Claims Index";
 }
 
-<h2>Submitted Claims</h2>
-<table class="table">
+<h2 style="text-align:center; color:#2c3e50; font-family: Arial, sans-serif;">Submitted Claims</h2>
+
+<table class="table" style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
     <thead>
-        <tr>
-            <th>Hours Worked</th>
-            <th>Hourly Rate</th>
-            <th>Additional Notes</th>
-            <th>File</th>
+        <tr style="background-color: #f8f9fa;">
+            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Hours Worked</th>
+            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Hourly Rate</th>
+            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Additional Notes</th>
+            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">File</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var claim in Model)
         {
-            <tr>
-                <td>@claim.HoursWorked</td>
-                <td>@claim.HourlyRate</td>
-                <td>@claim.AdditionalNotes</td>
-                <td>@claim.DocumentName</td>
+            <tr style="background-color: #f5f5f5;">
+                <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.HoursWorked</td>
+                <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.HourlyRate</td>
+                <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.AdditionalNotes</td>
+                <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.DocumentName</td>
             </tr>
         }
     </tbody>
 </table>
 
-<a asp-action="SubmitClaim" asp-controller="Claims">Create New Claim</a>
+<div style="text-align:center; margin-top: 20px;">
+    <a asp-action="SubmitClaim" asp-controller="Claims" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-family: Arial, sans-serif;">
+        Create New Claim
+    </a>
+</div>
