@@ -6,6 +6,7 @@ namespace PROG_Part_2.Models
     {
         [Key]
         public int ClaimId { get; set; }
+        public string? Name { get; set; }
         public decimal HoursWorked { get; set; }
         public decimal HourlyRate { get; set; }
         public string? AdditionalNotes { get; set; }

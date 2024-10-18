@@ -59,5 +59,24 @@ namespace PROG_Part_2.Services
             catch (Exception ex) { throw new Exception("Error listing files:" + ex.Message, ex); }
             return fileModels;
         }
+        public async Task<Stream> DownLoadFileAsync(string directoryName, string fileName)
+        {
+            try
+            {
+                var serviceClient = new ShareServiceClient(_connectionString);
+                var shareClient = serviceClient.GetShareClient(_fileShareName);
+                var directoryClient = shareClient.GetDirectoryClient(directoryName);
+                var fileClient = directoryClient.GetFileClient(fileName);
+
+                var downloadInfo = await fileClient.DownloadAsync();
+                return downloadInfo.Value.Content;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error downloading file: " + ex.Message, ex);
+            }
+        }
+
     }
 }
+
