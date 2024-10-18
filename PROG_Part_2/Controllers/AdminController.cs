@@ -22,7 +22,7 @@ namespace PROG_Part_2.Controllers
         }
 
         [HttpPost]
-        public IActionResult ApproveClaim(int id)
+        public IActionResult ApproveClaim(int id) // (Microsoft, 2023)
         {
             var claim = ClaimsController._claimsList.FirstOrDefault(c => c.ClaimId == id);
             if (claim != null)
@@ -33,7 +33,7 @@ namespace PROG_Part_2.Controllers
         }
 
         [HttpPost]
-        public IActionResult RejectClaim(int id)
+        public IActionResult RejectClaim(int id) // (Microsoft, 2023)
         {
             var claim = ClaimsController._claimsList.FirstOrDefault(c => c.ClaimId == id);
             if (claim != null)

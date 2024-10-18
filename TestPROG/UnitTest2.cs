@@ -3,11 +3,6 @@ using Moq;
 using PROG_Part_2.Controllers;
 using PROG_Part_2.Models;
 using PROG_Part_2.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestPROG
 {
@@ -16,7 +11,7 @@ namespace TestPROG
         [Fact]
         public void ApproveClaim_ValidId_UpdatesClaimStatus()
         {
-            var fileServiceMock = new Mock<AzureFileShareService>("connectionString", "fileShareName");
+            var fileServiceMock = new Mock<AzureFileShareService>("connectionString", "fileShareName"); // (RuchiG, 2023)
             var controller = new AdminController(fileServiceMock.Object);
             var claim = new Claims
             {
@@ -29,7 +24,7 @@ namespace TestPROG
 
             ClaimsController._claimsList.Add(claim);
 
-            var result = controller.ApproveClaim(1) as RedirectToActionResult;
+            var result = controller.ApproveClaim(1) as RedirectToActionResult; // (RuchiG, 2023)
             Assert.NotNull(result);
             Assert.Equal("PendingClaims", result.ActionName);
             Assert.Equal("Approved", claim.Status);

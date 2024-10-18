@@ -14,7 +14,7 @@ namespace PROG_Part_2.Controllers
             _fileShareService = fileShareService;
         }
 
-        public static List<Claims> _claimsList = new List<Claims>();
+        public static List<Claims> _claimsList = new List<Claims>(); // (Stack Overflow, 2016)
 
         [HttpGet]
         public IActionResult SubmitClaim()
@@ -23,7 +23,7 @@ namespace PROG_Part_2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SubmitClaim(Claims model, IFormFile file)
+        public async Task<IActionResult> SubmitClaim(Claims model, IFormFile file) // (Stack Overflow, 2016)
         {
             if (ModelState.IsValid)
             {

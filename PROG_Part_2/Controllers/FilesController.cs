@@ -10,8 +10,8 @@ namespace PROG_Part_2.Controllers
     public class FilesController : Controller
     {
         private readonly AzureFileShareService _fileShareService;
-        private const long FileSize = 1 * 1024 * 1024;
-        private readonly string[] FileTypes = { ".pdf", ".png", ".jpg" };
+        private const long FileSize = 1 * 1024 * 1024; // (Nilsson, 2008)
+        private readonly string[] FileTypes = { ".pdf", ".png", ".jpg" }; // (Parshuram Kalvikatte, 2017)
 
         public FilesController(AzureFileShareService fileShareService)
         {
@@ -44,11 +44,11 @@ namespace PROG_Part_2.Controllers
 
             if (file.Length > FileSize)
             {
-                ModelState.AddModelError("file", "The file size exceeds the limit of 1 MB.");
+                ModelState.AddModelError("file", "The file size exceeds the limit of 1 MB."); // (Nilsson, 2008)
                 return View("Index");
             }
 
-            var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
+            var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant(); // (Parshuram Kalvikatte, 2017)
             if (!FileTypes.Contains(fileExtension))
             {
                 ModelState.AddModelError("file", "Invalid file type");

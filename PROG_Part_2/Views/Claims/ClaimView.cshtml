@@ -13,27 +13,27 @@
         @using (Html.BeginForm("SubmitClaim", "Claims", FormMethod.Post, new { enctype = "multipart/form-data", @class = "claim-form" }))
         {
             <div class="form-group" style="margin-bottom: 15px;">
-                @Html.LabelFor(m => m.Name, "Lecturer Name", new { @style = "color: #2c3e50;" })
-                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", type = "text", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
-                @Html.ValidationMessageFor(m => m.Name, null, new { @style = "color: #e74c3c;" })
+                @Html.LabelFor(m => m.Name, "Lecturer Name", new { @style = "color: #2c3e50;" }) <!--(dotnet-bot, 2024)-->
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", type = "text", style = "border: 1px solid #2c3e50; border-radius: 4px;" }) <!--(dotnet-bot, 2024)-->
+                @Html.ValidationMessageFor(m => m.Name, null, new { @style = "color: #e74c3c;" }) <!--(dotnet-bot, 2024)-->
             </div>
 
             <div class="form-group" style="margin-bottom: 15px;">
-                @Html.LabelFor(m => m.HoursWorked, "Hours Worked", new { @style = "color: #2c3e50;" })
-                @Html.TextBoxFor(m => m.HoursWorked, new { @class = "form-control", type = "number", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
-                @Html.ValidationMessageFor(m => m.HoursWorked, null, new { @style = "color: #e74c3c;" })
+                @Html.LabelFor(m => m.HoursWorked, "Hours Worked", new { @style = "color: #2c3e50;" }) <!--(dotnet-bot, 2024)-->
+                @Html.TextBoxFor(m => m.HoursWorked, new { @class = "form-control", type = "number", style = "border: 1px solid #2c3e50; border-radius: 4px;" }) <!--(dotnet-bot, 2024)-->
+                @Html.ValidationMessageFor(m => m.HoursWorked, null, new { @style = "color: #e74c3c;" }) <!--(dotnet-bot, 2024)-->
             </div>
 
             <div class="form-group" style="margin-bottom: 15px;">
-                @Html.LabelFor(m => m.HourlyRate, "Hourly Rate", new { @style = "color: #2c3e50;" })
-                @Html.TextBoxFor(m => m.HourlyRate, new { @class = "form-control", type = "number", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
-                @Html.ValidationMessageFor(m => m.HourlyRate, null, new { @style = "color: #e74c3c;" })
-            </div>
+                @Html.LabelFor(m => m.HourlyRate, "Hourly Rate", new { @style = "color: #2c3e50;" }) <!--(dotnet-bot, 2024)-->
+                @Html.TextBoxFor(m => m.HourlyRate, new { @class = "form-control", type = "number", style = "border: 1px solid #2c3e50; border-radius: 4px;" }) <!--(dotnet-bot, 2024)-->
+                @Html.ValidationMessageFor(m => m.HourlyRate, null, new { @style = "color: #e74c3c;" }) <!--(dotnet-bot, 2024)-->
+            </div> 
 
             <div class="form-group" style="margin-bottom: 15px;">
-                @Html.LabelFor(m => m.AdditionalNotes, "Additional Notes", new { @style = "color: #2c3e50;" })
-                @Html.TextBoxFor(m => m.AdditionalNotes, new { @class = "form-control", type = "text", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
-                @Html.ValidationMessageFor(m => m.AdditionalNotes, null, new { @style = "color: #e74c3c;" })
+                @Html.LabelFor(m => m.AdditionalNotes, "Additional Notes", new { @style = "color: #2c3e50;" }) <!--(dotnet-bot, 2024)-->
+                @Html.TextBoxFor(m => m.AdditionalNotes, new { @class = "form-control", type = "text", style = "border: 1px solid #2c3e50; border-radius: 4px;" }) <!--(dotnet-bot, 2024)-->
+                @Html.ValidationMessageFor(m => m.AdditionalNotes, null, new { @style = "color: #e74c3c;" }) <!--(dotnet-bot, 2024)-->
             </div>
 
             <div class="form-group" style="margin-bottom: 20px;">
