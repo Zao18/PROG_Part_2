@@ -4,45 +4,47 @@
     ViewData["Title"] = "ClaimView";
 }
 
-<div class="claim-form-container">
-    <h2>Submit Monthly Claim</h2>
+<body style="background-color: #479ccf; font-family: Arial, sans-serif; color: #fff;">
+    <div class="claim-form-container" style="background-color: #ffffff; border-radius: 8px; padding: 20px; max-width: 600px; margin: 40px auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #2c3e50; text-align: center; margin-bottom: 20px;">Submit Monthly Claim</h2>
 
-    @using (Html.BeginForm("SubmitClaim", "Claims", FormMethod.Post, new { enctype = "multipart/form-data", @class = "claim-form" }))
-    {
-        <div class="form-group">
-            @Html.LabelFor(m => m.HoursWorked, "Hours Worked")
-            @Html.TextBoxFor(m => m.HoursWorked, new { @class = "form-control", type = "number", step = "0.1", min = "0" })
-            @Html.ValidationMessageFor(m => m.HoursWorked)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.HourlyRate, "Hourly Rate")
-            @Html.TextBoxFor(m => m.HourlyRate, new { @class = "form-control", type = "number", step = "0.01", min = "0" })
-            @Html.ValidationMessageFor(m => m.HourlyRate)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.AdditionalNotes, "Additional Notes")
-            @Html.TextBoxFor(m => m.AdditionalNotes, new { @class = "form-control", type = "string"})
-            @Html.ValidationMessageFor(m => m.AdditionalNotes)
-        </div>
-
-        <div class="form-group">
-            <label for="file">Upload Document:</label>
-            <input type="file" name="file" class="form-control" />
-        </div>
-
-        @if (!string.IsNullOrEmpty(Model.DocumentName))
+        @using (Html.BeginForm("SubmitClaim", "Claims", FormMethod.Post, new { enctype = "multipart/form-data", @class = "claim-form" }))
         {
-            <div class="form-group">
-                <p>Uploaded Document: @Model.DocumentName</p>
+            <div class="form-group" style="margin-bottom: 15px;">
+                @Html.LabelFor(m => m.HoursWorked, "Hours Worked", new { @style = "color: #2c3e50;" })
+                @Html.TextBoxFor(m => m.HoursWorked, new { @class = "form-control", type = "number", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
+                @Html.ValidationMessageFor(m => m.HoursWorked, null, new { @style = "color: #e74c3c;" })
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                @Html.LabelFor(m => m.HourlyRate, "Hourly Rate", new { @style = "color: #2c3e50;" })
+                @Html.TextBoxFor(m => m.HourlyRate, new { @class = "form-control", type = "number", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
+                @Html.ValidationMessageFor(m => m.HourlyRate, null, new { @style = "color: #e74c3c;" })
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                @Html.LabelFor(m => m.AdditionalNotes, "Additional Notes", new { @style = "color: #2c3e50;" })
+                @Html.TextBoxFor(m => m.AdditionalNotes, new { @class = "form-control", type = "text", style = "border: 1px solid #2c3e50; border-radius: 4px;" })
+                @Html.ValidationMessageFor(m => m.AdditionalNotes, null, new { @style = "color: #e74c3c;" })
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="file" style="color: #2c3e50;">Upload Document:</label>
+                <input type="file" name="file" class="form-control" style="border: 1px solid #2c3e50; border-radius: 4px;" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.DocumentName))
+            {
+                <div class="form-group">
+                    <p style="color: #2c3e50;">Uploaded Document: <strong>@Model.DocumentName</strong></p>
+                </div>
+            }
+
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary btn-lg" style="background-color: #2c3e50; border: none;">Submit Claim</button>
+
+                <button type="reset" class="btn btn-secondary btn-lg" style="background-color: #95a5a6; border: none; margin-left: 10px;">Clear Fields</button>
             </div>
         }
-
-        <br/>
-
-        <button type="submit" class="btn btn-primary btn-lg">Submit Claim</button>
-
-        <button type="reset" class="btn btn-secondary btn-lg" style="margin-left: 10px;">Clear Fields</button>
-    }
-</div>
+    </div>
+</body>

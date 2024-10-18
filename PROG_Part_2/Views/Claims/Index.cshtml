@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Claims Index";
 }
-
+<body style="background-color: #479ccf;">
+    <div class="claim-form-container" style="background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
 <h2 style="text-align:center; color:#2c3e50; font-family: Arial, sans-serif;">Submitted Claims</h2>
 
 <table class="table" style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
@@ -29,7 +30,8 @@
 </table>
 
 <div style="text-align:center; margin-top: 20px;">
-    <a asp-action="SubmitClaim" asp-controller="Claims" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-family: Arial, sans-serif;">
+        <a asp-action="SubmitClaim" asp-controller="Claims" style="padding: 10px 20px; background-color: #2d3538; color: white; text-decoration: none; border-radius: 5px; font-family: Arial, sans-serif;">
         Create New Claim
     </a>
 </div>
+</body>

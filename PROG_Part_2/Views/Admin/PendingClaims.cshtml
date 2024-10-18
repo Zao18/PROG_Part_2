@@ -4,6 +4,8 @@
     ViewData["Title"] = "Pending Claims";
 }
 
+<body style="background-color: #479ccf;">
+    <div class="claim-form-container" style="background-color: #ffffff; border-radius: 8px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
 <h2 style="text-align:center; color:#2c3e50; font-family: Arial, sans-serif;">Pending Claims for Approval</h2>
 
 <table class="table" style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
@@ -12,7 +14,8 @@
             <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Hours Worked</th>
             <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Hourly Rate</th>
             <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Additional Notes</th>
-            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Actions</th>
+            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Files</th>
+            <th style="padding: 10px; border-bottom: 2px solid #dee2e6;">Approval</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +26,8 @@
                 <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.HourlyRate</td>
                 <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.AdditionalNotes</td>
                 <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">@claim.DocumentName</td>
-                <td>
+                <td style="padding: 10px; border-bottom: 1px solid #dee2e6;">
+                <div style="display: flex; gap: 10px;">
                     <form asp-action="ApproveClaim" method="post">
                         <input type="hidden" name="id" value="@claim.ClaimId" />
                         <button type="submit" class="btn btn-success">Approve</button>
@@ -32,9 +36,12 @@
                         <input type="hidden" name="id" value="@claim.ClaimId" />
                         <button type="submit" class="btn btn-danger">Reject</button>
                     </form>
+                </div>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
+</body>
 
